@@ -6,6 +6,11 @@ spring:
     username: root
     password: 123123
     driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 192.168.153.131
+    port: 6379
+    password: 123123
+    database: 10
   servlet:
     multipart:
       max-file-size: 2MB

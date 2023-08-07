@@ -64,6 +64,7 @@ public class ArticleController {
      * @date: 2023/8/3 18:53
      */
     @GetMapping("/{id}")
+    @ApiOperation("查看文章详情")
     public ResponseResult<ArticleDetailVo> getArticleDetail(@PathVariable Long id){
         ArticleDetailVo articleDetailVo=articleService.getArticleDetail(id);
         return ResponseResult.okResult(articleDetailVo);

@@ -80,29 +80,34 @@ class WebConfig implements WebMvcConfigurer {
         return interceptor;
     }
 
-    @Bean//使用@Bean注入fastJsonHttpMessageConvert
+    @Bean//用于创建一个HttpMessageConverter类型的Bean
+    //FastJson 是阿里巴巴开源的一款高性能 JSON 解析库，它是一个用于处理 JSON 格式数据的 Java 库。FastJson 提供了非常快速、高效的 JSON 解析和生成功能
     public HttpMessageConverter fastJsonHttpMessageConverters() {
-        //1.需要定义一个Convert转换消息的对象
+        //1.FastJsonHttpMessageConverter是FastJson库为了与Spring框架集成而提供的一个实现了HttpMessageConverter接口的类。
+        // 它通过FastJson库来实现将Java对象与JSON数据进行转换，同时允许你在转换时自定义FastJson的配置。
         FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
+        //FastJsonConfig 是 FastJson 库中的一个配置类，用于定制 FastJson 库的行为
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
+        //序列化时的格式化选项，使得生成的JSON数据格式化显示，更易读。
         fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
+        //设置日期格式化的格式
         fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
-
+        //设置 FastJson 在序列化 Long 类型时，将其转换为字符串，以避免前端在处理大数字时丢失精度的问题。
         SerializeConfig.globalInstance.put(Long.class, ToStringSerializer.instance);
-
+        //把设置加入配置
         fastJsonConfig.setSerializeConfig(SerializeConfig.globalInstance);
+        //启用自定义配置
         fastConverter.setFastJsonConfig(fastJsonConfig);
+        //类型转换
         HttpMessageConverter<?> converter = fastConverter;
         return converter;
     }
 
+    //把新建的concerter（消息转换器）并将其添加到消息转换器列表 converters中
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(fastJsonHttpMessageConverters());
     }
-
-
-
 
 
 }
