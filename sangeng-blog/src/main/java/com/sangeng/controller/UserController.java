@@ -3,6 +3,7 @@ package com.sangeng.controller;
 
 
 import com.sangeng.domain.ResponseResult;
+import com.sangeng.domain.entity.User;
 import com.sangeng.domain.vo.UserInfoVo;
 import com.sangeng.service.UserService;
 import io.swagger.annotations.Api;
@@ -35,6 +36,19 @@ public class UserController {
     public ResponseResult<UserInfoVo> userInfo(){
         UserInfoVo userInfoVo = userService.userInfo();
         return ResponseResult.okResult(userInfoVo);
+    }
+
+    /**
+     * @Description:更新个人信息接口
+     * @return: com.sangeng.domain.ResponseResult
+     * @author: chen
+     * @date: 2023/8/8 11:05
+     */
+    @ApiOperation("更新个人信息接口")
+    @PutMapping("/userInfo")
+    public ResponseResult updateUserInfo(@RequestBody User user){
+        userService.updateUserInfo(user);
+        return ResponseResult.okResult();
     }
 
 
