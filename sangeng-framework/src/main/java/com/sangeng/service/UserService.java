@@ -27,5 +27,13 @@ public interface UserService extends IService<User> {
      * @date: 2023/8/8 11:06
      */
     void updateUserInfo(User user);
+
+    /**
+     * @Description:用户注册
+     * @return: void
+     * @author: chen
+     * @date: 2023/8/8 11:12
+     */
+    void register(User user);
 }
 

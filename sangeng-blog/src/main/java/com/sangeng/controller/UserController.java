@@ -51,6 +51,19 @@ public class UserController {
         return ResponseResult.okResult();
     }
 
+    /**
+     * @Description:用户注册
+     * @return: com.sangeng.domain.ResponseResult
+     * @author: chen
+     * @date: 2023/8/8 11:11
+     */
+    @ApiOperation("用户注册")
+    @PostMapping("/register")
+    public ResponseResult register(@RequestBody User user){
+        userService.register(user);
+        return ResponseResult.okResult();
+    }
+
 
 }
 
