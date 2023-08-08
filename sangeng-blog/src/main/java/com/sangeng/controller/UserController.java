@@ -19,6 +19,10 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/user")
 @Api(tags = "用户功能代码")
+//oss-cn-beijing.aliyuncs.com
+//LTAI5tPCUkfzLPtMVhbbJriv
+//RoTFtxsRfLWSrz1hbz4sXuJEIrOYX6
+//cc-flbk-img
 public class UserController {
     /**
      * 服务对象

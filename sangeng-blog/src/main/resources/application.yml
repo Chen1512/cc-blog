@@ -38,4 +38,12 @@ swagger:
     name: '吕小白'
     url: 'https:www.baidu.com'
     email: '******@qq.com'
+cc:
+  alioss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    access-key-id: LTAI5tSGRg6JWd19RHfmfaAT
+    access-key-secret: SWxcFkLagdCOfvOU1RBmul9nnICsdU
+    bucket-name: cc-flbk-img
+
+
 

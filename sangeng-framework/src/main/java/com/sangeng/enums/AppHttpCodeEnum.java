@@ -12,7 +12,8 @@ public enum AppHttpCodeEnum {
     EMAIL_EXIST(503, "邮箱已存在"),
     REQUIRE_USERNAME(504, "必需填写用户名"),
     LOGIN_ERROR(505,"用户名或密码错误"),
-    CONTENT_NOT_NULL(506,"内容不能为空");
+    CONTENT_NOT_NULL(506,"内容不能为空"),
+    UPLOAD_FAILED(507,"图片上传失败");
 
 
     
