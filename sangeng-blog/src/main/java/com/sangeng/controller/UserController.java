@@ -2,7 +2,11 @@ package com.sangeng.controller;
 
 
 
+import com.sangeng.domain.ResponseResult;
+import com.sangeng.domain.vo.UserInfoVo;
 import com.sangeng.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
@@ -14,6 +18,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/user")
+@Api(tags = "用户功能代码")
 public class UserController {
     /**
      * 服务对象
@@ -21,6 +26,13 @@ public class UserController {
     @Resource
     private UserService userService;
 
-  
+    @GetMapping("/userInfo")
+    @ApiOperation("个人信息查询接口")
+    public ResponseResult<UserInfoVo> userInfo(){
+        UserInfoVo userInfoVo = userService.userInfo();
+        return ResponseResult.okResult(userInfoVo);
+    }
+
+
 }
 
